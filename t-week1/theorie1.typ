@@ -67,13 +67,32 @@ $
 
 = Rauschelimination
 
+Es ist klar, dass die Wahl von $K$ die Stichprobengröße erhöht und dadurch das "unverrauschte" Bild besser rekonstruiert wird, da der Erwartungswert des Mittelbilds $overline(g)(x,y)$ genau das "unverrauschte" Bild $f(x,y)$ ist.
+
+Zu zeigen: Der Erwartungswert des Mittelbilds ist das unverrauschte Bild.
 $
   EE {overline(g)(x,y)} &= EE{1/K sum_(i=1)^K g_i (x,y)} \
   &= 1/K space.en sum_(i=1)^K EE {g_i (x,y)} \
   &= 1/K space.en sum_(i=1)^K EE {f(x,y) + eta_i (x,y)} \
   &= 1/K (K dot f(x,y) + sum_(i=1)^K EE {eta_i (x,y)}) \
   &= 1/K (K dot f(x,y) + sum_(i=1)^K EE {0}) #kt[per Definition] \
+  &= 1/K dot K dot f(x,y) \
   &= f(x,y)
+$
+
+#qed_pl
+
+#pagebreak()
+Zu zeigen: Die Varianz des Mittelbild ist die Varianz des Fehlers einer Einzelaufnahme, geteilt durch $K$.
+$
+  sigma^2_(overline(g)(x,y)) &= EE { (1/K sum_(i=1)^K g_i (x,y) - 0)^2 } #kt[Df. Varianz] \
+  &= 1/K^2 dot EE { ( sum_(i=1)^K g_i (x,y))^2 } #kt[Unabhängigkeit p. Df.] \
+  &= 1/K^2 dot EE { sum_(i=1)^K sum_(j=1)^K g_i (x,y) dot g_j (x,y) } \
+  &= 1/K^2 dot ( sum_(i=1)^K sum_(j=1)^K EE { g_i (x,y) dot g_j (x,y) } ) \
+  &= 1/K^2 dot ( sum_(i=1)^K sum_(j=1)^K  EE { (f(x,y) + eta_i (x,y)) dot (f(x,y) + eta_j (x,y)) } ) \
+  &= 1/K^2 dot ( sum_(i=1)^K sum_(j=1)^K  EE { eta_i (x,y) dot eta_j (x,y) } ) #kt[Unabhängigkeit p. Df.] \
+  &= 1/K^2 dot K dot sigma^2_(eta(x,y)) \
+  &= 1/K dot sigma^2_(eta(x,y))
 $
 
 #qed_pl
@@ -82,7 +101,7 @@ $
 
 = Median-Operator
 
-Für linearität muss Homogenität und Additivität gelten. Es genügt zu zeigen, dass eine der beiden Eigenschaften verletzt ist.
+Für Linearität muss Homogenität und Additivität gelten. Es genügt zu zeigen, dass eine der beiden Eigenschaften verletzt ist.
 Ich zeige dies anhand der Additivität.
 
 $
