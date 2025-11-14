@@ -101,6 +101,8 @@ Verwendetes Paper für Fouriertransformierte des Gaußfilters:
 
 (1) http://www.cse.yorku.ca/~kosta/CompVis_Notes/fourier_transform_Gaussian.pdf
 
+#pagebreak()
+
 = Quantisierungskennlinie
 
 Sei $p(f)$ die Wahrscheinlichkeitsdichtefunktion eines aufgenommenen Bildes die Zufallsvariable $f$. 
